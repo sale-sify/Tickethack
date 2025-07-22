@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    
+}
+
+#landing-page {
+    background-image: url(/photo-d-un-chemin-de-fer-mysterieux-entoure-d-arbres.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#header {
+    height: 8vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 15px;
+    font-size: large;
+    color: rgb(48, 194, 121);
+}
+
+.title1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    height: 15vh;
+    width: 100%;
+}
+
+h2 {
+    font-size: 165%;
+}
+
+.title1 > p {
+    font-size: 120%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 10vh;
+    margin-right: 10vh; 
+}
+
+.left {
+    height: 45vh;
+    width: 40vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2%;   
+    border-radius: 4%;
+}
+
+.left > .inputs-villes{
+    height: 20%;
+}
+
+.left > .inputs-villes > input {
+    width: 97%;
+    height: 60%;
+    border-radius: 1vh;
+    border: 1px solid rgb(180, 180, 180);
+    font-size: 100%;
+}
+
+.left > input {
+    height: 13%;
+    border-radius: 1vh;
+    border: 1px solid rgb(180, 180, 180);
+    font-size: 100%;
+}
+
+.left > button {
+    height: 13%;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 1vh;
+    background-color: rgb(48, 194, 121);
+    color: white;
+    font-size: 120%;
+}
+
+.right {
+    height: 45vh;
+    width: 40vh;
+    background-color: white;
+    font-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2%;   
+    border-radius: 4%;
+    
+}
+
+.right > img {
+    width: 90%;
+}
