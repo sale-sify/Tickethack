@@ -11,21 +11,23 @@ router.get('/', function(req, res, next) {
 
 // Connexion avec la base de donnees 
 const { Client } = require('pg');
-const connectionString = 'postgres://avnadmin:AVNS_ZU5lZC7ueI-Htheht2S@pg-d96302e-romain-6a10.e.aivencloud.com:24295/defaultdb?sslmode=require';
-
-const client = new Client({ connectionString });
+const connectionString = new Client({
+connectionString: 'postgresql://neondb_owner:npg_h7rqO3NQtpuC@ep-wild-mountain-abc0qrca-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require',
+ssl: { rejectUnauthorized: false }
+});
+const client = new Client( connectionString );
 client.connect();
 
 
 // Route GET /tickets -> pour recuperer la totalite des donnees 
 router.get('/tickets', async (req, res) => {
   try {
-    const { rows } = client.query('SELECT * FROM tickets');
+    const { rows } = await client.query('SELECT * FROM tickets');
     res.json({ result: true, tickets: rows });
-} catch (e) {
-  console.error(e.stack);
-  res.status(500).json({ result: false, error: "Internaal error" });
-}
+  } catch (e) {
+    console.error(e.stack);
+    res.status(500).json({ result: false, error: "Internal error" });
+  } 
 });
 
 
