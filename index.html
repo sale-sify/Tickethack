@@ -25,8 +25,8 @@
 
             <div class="left">
                 <div class="inputs-villes">
-                    <input type="text" name="Departure" class="input-departure" placeholder="Departure">
-                    <input type="text" name="Arrival" class="input-arrival" placeholder="Arrival">
+                    <input type="text" name="Departure" id="input-departure" placeholder="Departure">
+                    <input type="text" name="Arrival" id="input-arrival" placeholder="Arrival">
                 </div>
                 <input type="date" id="date" name="Date"/>
                 <button class="btn-search">Search</button>
@@ -38,8 +38,29 @@
             </div>
 
             <div class="right1">
-                
+                <div class="result-line">
+                    <p><span class="res-departure">Departure</span> > <span id="res-arrival">Arrival</span></p>
+                    <p class="res-time">00:00</p>
+                    <p class="res-price"><span>00</span>€</p>  
+                </div>
+                <div class="result-line">
+                    <p><span class="res-departure">Departure</span> > <span id="res-arrival">Arrival</span></p>
+                    <p class="res-time">00:00</p>
+                    <p class="res-price"><span>00</span>€</p>  
+                </div>
+                <div class="result-line">
+                    <p><span class="res-departure">Departure</span> > <span id="res-arrival">Arrival</span></p>
+                    <p class="res-time">00:00</p>
+                    <p class="res-price"><span>00</span>€</p>  
+                </div>
             </div>
+            
+            <div class="right2">
+                <img src="/Images/notfound.png" alt="Image loupe Tickethack">
+                <p>No result matching with your research.</p>
+            </div>
+
+        </div>
 
             
 

@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-require('dotenv').config();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,7 +12,7 @@ router.get('/', function(req, res, next) {
 // Connexion avec la base de donnees 
 const { Client } = require('pg');
 const connectionString = new Client({
-connectionString: process.env.DATABASE_URL,
+connectionString: 'postgresql://neondb_owner:npg_h7rqO3NQtpuC@ep-wild-mountain-abc0qrca-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require',
 ssl: { rejectUnauthorized: false }
 });
 const client = new Client( connectionString );
@@ -36,8 +35,8 @@ router.get('/tickets', async (req, res) => {
 router.get('/search/:departure/:arrival/:date', async (req, res) => {
   try {
     const { departure, arrival, date } = req.params;
-    const { row } = await client.query('SELECT * FROM tickets WHERE departure=$1 AND arrival=$2 AND date=$3', [departure, arrival, date]);
-    return res.json({ result: true, ticket: row});
+    const { rows } = await client.query('SELECT * FROM tickets WHERE departure=$1 AND arrival=$2 AND date::date=$3', [departure, arrival, date]);
+    return res.json({ result: true, tickets: rows});
   } catch (e) {
     console.error(e.stack);
     return res.status(400).json({ result: false, error: "No result found" });
